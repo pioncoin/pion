@@ -1,0 +1,21 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/pion_bg.qm</file>
+        <file alias="de">locale/pion_de.qm</file>
+        <file alias="en">locale/pion_en.qm</file>
+        <file alias="es">locale/pion_es.qm</file>
+        <file alias="fi">locale/pion_fi.qm</file>
+        <file alias="fr">locale/pion_fr.qm</file>
+        <file alias="it">locale/pion_it.qm</file>
+        <file alias="ja">locale/pion_ja.qm</file>
+        <file alias="nl">locale/pion_nl.qm</file>
+        <file alias="pl">locale/pion_pl.qm</file>
+        <file alias="pt">locale/pion_pt.qm</file>
+        <file alias="ru">locale/pion_ru.qm</file>
+        <file alias="sk">locale/pion_sk.qm</file>
+        <file alias="sv">locale/pion_sv.qm</file>
+        <file alias="vi">locale/pion_vi.qm</file>
+        <file alias="zh_CN">locale/pion_zh_CN.qm</file>
+        <file alias="zh_TW">locale/pion_zh_TW.qm</file>
+    </qresource>
+</RCC>

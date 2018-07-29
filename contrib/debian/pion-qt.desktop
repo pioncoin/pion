@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Pion Core
+Comment=Pion P2P Cryptocurrency
+Comment[de]=Verbinde mit dem Pion peer-to-peer Netzwerk
+Comment[fr]=Pion, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Pion, eşten eşe kriptografik sanal para birimi
+Exec=pion-qt %u
+Terminal=false
+Type=Application
+Icon=pion128
+MimeType=x-scheme-handler/pion;
+Categories=Office;Finance;
