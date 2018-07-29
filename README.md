@@ -1,8 +1,6 @@
 Pion Core staging tree 0.12.3
 ===============================
 
-`master:` [![Build Status](https://travis-ci.org.pioncoinpay/pion.svg?branch=master)](https://travis-ci.org.pioncoinpay/pion) `develop:` [![Build Status](https://travis-ci.org.pioncoinpay/pion.svg?branch=develop)](https://travis-ci.org.pioncoinpay/pion/branches)
-
 https://www.pioncoin.org
 
 
