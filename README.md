@@ -1,22 +1,13 @@
 Pion Core staging tree 0.12.3
 ===============================
 
-`master:` [![Build Status](https://travis-ci.org.pioncoinpay/pion.svg?branch=master)](https://travis-ci.org.pioncoinpay/pion) `develop:` [![Build Status](https://travis-ci.org.pioncoinpay/pion.svg?branch=develop)](https://travis-ci.org.pioncoinpay/pion/branches)
-
 https://www.pioncoin.org
 
 
 What is Pion?
 ----------------
 
-Pion is an experimental digital currency that enables anonymous, instant
-payments to anyone, anywhere in the world. Pion uses peer-to-peer technology
-to operate with no central authority: managing transactions and issuing money
-are carried out collectively by the network. Pion Core is the name of the open
-source software which enables the use of this currency.
-
-For more information, as well as an immediately useable, binary version of
-the Pion Core software, see https://www.pioncoin.org/get-pion/.
+Pion is a new decentralized Peer to Peer cryptocurrency that is simple, fast, and secure. The system uses Proof of Work (Mining) utilizing X16R algorithm and Masternodes for a fair and efficient allotment/distribution of Pion coins. To keep the coin decentralized the mining will be limited to GPU’s only and will be ASIC resistant. Pion wants to remove barriers to entry by making it simple for people to acquire and transact coins on the Pion network. Pion makes it effortless for people from all walks of life to mine, earn, own, trade and transact using the Pion coin.
 
 
 License
