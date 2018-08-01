@@ -140,10 +140,10 @@ public:
         consensus.nGovernanceFilterElements = 20000;
         consensus.nMasternodeMinimumConfirmations = 15;
         consensus.BIP34Height = 20; 
-        consensus.BIP34Hash = uint256S(""); // TODO: Fix this
-        consensus.BIP65Height = 30; // TODO: Put block number
-        consensus.BIP66Height = 25; // TODO: Put block number
-        consensus.DIP0001Height = 40; // TODO: Put block number
+        consensus.BIP34Hash = uint256S("0x000000b4e8dbb3f7c548e48c8a6b257d743a29e3ade16d81fa36c73a795a1912");
+        consensus.BIP65Height = 30; // 000000714717873e9fd2f163232cae4054b9bfea3568f323e9de45a9e83da5c0
+        consensus.BIP66Height = 25; // 00000109ce03128f30dcb5fa8b870e96f9ff76da420034dde374e6549b83f3e5
+        consensus.DIP0001Height = 40; // 000001a5d2a4a1c1fbb45743d64b5220cf5b2d619d2540e8e755bd634c287a47
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 20
         consensus.nPowTargetTimespan = 60 * 60; // Pion: 1 hour, 30 blocks
         consensus.nPowTargetSpacing = 2 * 60; // Pion: 2 minutes
@@ -175,10 +175,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nThreshold = 50; // 50% of 100. 
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000300012"); // 2
+        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000002ebc755d4150b"); // 1500
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x000002131139f1c39af6ce10f027e5c708e7f16f66415fb0725182a1b38965e6"); // 2
+        consensus.defaultAssumeValid = uint256S("0x0000000001fb85d15692ea9300249267549fb5102264c0469ac88a5af99d85fb"); // 1500
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -231,10 +231,11 @@ public:
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
             (  2, uint256S("0x000002131139f1c39af6ce10f027e5c708e7f16f66415fb0725182a1b38965e6"))
+            (  1500, uint256S("0x0000000001fb85d15692ea9300249267549fb5102264c0469ac88a5af99d85fb"))
         };
 
         chainTxData = ChainTxData{
-            1532876286, // * UNIX timestamp of last known number of transactions
+            1533070107, // * UNIX timestamp of last known number of transactions
             0,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             0.01         // * estimated number of transactions per second after that timestamp
