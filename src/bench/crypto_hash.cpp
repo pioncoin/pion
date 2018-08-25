@@ -1,5 +1,6 @@
 // Copyright (c) 2016 The Bitcoin Core developers
 // Copyright (c) 2018 The Dash Core developers
+// Copyright (c) 2018 The Pion Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -129,7 +130,7 @@ static void HASH_DSHA256_2048b_single(benchmark::State& state)
     while (state.KeepRunning())
         CHash256().Write(in.data(), in.size()).Finalize(&in[0]);
 }
-
+/*
 static void HASH_X11(benchmark::State& state)
 {
     uint256 hash;
@@ -184,14 +185,14 @@ static void HASH_X11_2048b_single(benchmark::State& state)
     std::vector<uint8_t> in(2048,0);
     while (state.KeepRunning())
         hash = HashX11(in.begin(), in.end());
-}
+}*/
 
 BENCHMARK(HASH_RIPEMD160);
 BENCHMARK(HASH_SHA1);
 BENCHMARK(HASH_SHA256);
 BENCHMARK(HASH_DSHA256);
 BENCHMARK(HASH_SHA512);
-BENCHMARK(HASH_X11);
+//BENCHMARK(HASH_X11);
 
 BENCHMARK(HASH_SHA256_0032b);
 BENCHMARK(HASH_DSHA256_0032b);
@@ -203,9 +204,11 @@ BENCHMARK(HASH_DSHA256_0128b_single);
 BENCHMARK(HASH_DSHA256_0512b_single);
 BENCHMARK(HASH_DSHA256_1024b_single);
 BENCHMARK(HASH_DSHA256_2048b_single);
+/*
 BENCHMARK(HASH_X11_0032b_single);
 BENCHMARK(HASH_X11_0080b_single);
 BENCHMARK(HASH_X11_0128b_single);
 BENCHMARK(HASH_X11_0512b_single);
 BENCHMARK(HASH_X11_1024b_single);
 BENCHMARK(HASH_X11_2048b_single);
+*/

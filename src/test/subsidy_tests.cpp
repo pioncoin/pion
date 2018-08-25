@@ -1,11 +1,12 @@
 // Copyright (c) 2014-2018 The Dash Core developers
+// Copyright (c) 2018 The Pion Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "chainparams.h"
 #include "validation.h"
 
-#include "test/test_dash.h"
+#include "test/test_pion.h"
 
 #include <boost/test/unit_test.hpp>
 
@@ -20,54 +21,60 @@ BOOST_AUTO_TEST_CASE(block_subsidy_test)
     CAmount nSubsidy;
 
     // details for block 4249 (subsidy returned will be for block 4250)
+    // random block in the first year - 20 coins
     nPrevBits = 0x1c4a47c4;
     nPrevHeight = 4249;
     nSubsidy = GetBlockSubsidy(nPrevBits, nPrevHeight, consensusParams, false);
-    BOOST_CHECK_EQUAL(nSubsidy, 50000000000ULL);
+    BOOST_CHECK_EQUAL(nSubsidy, 20 * COIN);
 
-    // details for block 4501 (subsidy returned will be for block 4502)
+    // details for block 0 (subsidy returned will be for block 1)
+    // Dev foundation pre-mine 1,000,000 coins
     nPrevBits = 0x1c4a47c4;
-    nPrevHeight = 4501;
+    nPrevHeight = 0;
     nSubsidy = GetBlockSubsidy(nPrevBits, nPrevHeight, consensusParams, false);
-    BOOST_CHECK_EQUAL(nSubsidy, 5600000000ULL);
+    BOOST_CHECK_EQUAL(nSubsidy, 1000000 * COIN);
 
-    // details for block 5464 (subsidy returned will be for block 5465)
+    // details for block 1 (subsidy returned will be for block 2)
+    // Marketing premine 350,000 coins
     nPrevBits = 0x1c29ec00;
-    nPrevHeight = 5464;
+    nPrevHeight = 1;
     nSubsidy = GetBlockSubsidy(nPrevBits, nPrevHeight, consensusParams, false);
-    BOOST_CHECK_EQUAL(nSubsidy, 2100000000ULL);
+    BOOST_CHECK_EQUAL(nSubsidy, 250000 * COIN);
 
-    // details for block 5465 (subsidy returned will be for block 5466)
+    // details for block 2189 (subsidy returned will be for block 2189)
+    // First Bonus block. 100 + 20 coins
     nPrevBits = 0x1c29ec00;
-    nPrevHeight = 5465;
+    nPrevHeight = 2189;
     nSubsidy = GetBlockSubsidy(nPrevBits, nPrevHeight, consensusParams, false);
-    BOOST_CHECK_EQUAL(nSubsidy, 12200000000ULL);
+    BOOST_CHECK_EQUAL(nSubsidy, 120 * COIN);
 
-    // details for block 17588 (subsidy returned will be for block 17589)
+    // details for block 262800 (subsidy returned will be for block 262801)
+    // first block in year 2
     nPrevBits = 0x1c08ba34;
-    nPrevHeight = 17588;
+    nPrevHeight = 262800;
     nSubsidy = GetBlockSubsidy(nPrevBits, nPrevHeight, consensusParams, false);
-    BOOST_CHECK_EQUAL(nSubsidy, 6100000000ULL);
+    BOOST_CHECK_EQUAL(nSubsidy, 1681920000ULL);
 
-    // details for block 99999 (subsidy returned will be for block 100000)
+    // details for block 264989 (subsidy returned will be for block 264990)
+    // Bonus block in the 2nd year
     nPrevBits = 0x1b10cf42;
-    nPrevHeight = 99999;
+    nPrevHeight = 264989;
     nSubsidy = GetBlockSubsidy(nPrevBits, nPrevHeight, consensusParams, false);
-    BOOST_CHECK_EQUAL(nSubsidy, 500000000ULL);
+    BOOST_CHECK_EQUAL(nSubsidy, 11681920000ULL);
 
-    // details for block 210239 (subsidy returned will be for block 210240)
+    // details for block 1314000 (subsidy returned will be for block 1314000)
+    // 5th year first block
     nPrevBits = 0x1b11548e;
-    nPrevHeight = 210239;
+    nPrevHeight = 1314000;
     nSubsidy = GetBlockSubsidy(nPrevBits, nPrevHeight, consensusParams, false);
-    BOOST_CHECK_EQUAL(nSubsidy, 500000000ULL);
+    BOOST_CHECK_EQUAL(nSubsidy, 841214386ULL);
 
-    // 1st subsidy reduction happens here
-
-    // details for block 210240 (subsidy returned will be for block 210241)
+    // details for block 1316189 (subsidy returned will be for block 1316190)
+    // Make sure no bonus blocks after 5th year
     nPrevBits = 0x1b10d50b;
-    nPrevHeight = 210240;
+    nPrevHeight = 1316189;
     nSubsidy = GetBlockSubsidy(nPrevBits, nPrevHeight, consensusParams, false);
-    BOOST_CHECK_EQUAL(nSubsidy, 464285715ULL);
+    BOOST_CHECK_EQUAL(nSubsidy, 841214386ULL);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

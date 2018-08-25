@@ -1,6 +1,6 @@
 all:
-	$(MAKE) -C .. dash_test
+	$(MAKE) -C .. pion_test
 clean:
-	$(MAKE) -C .. dash_test_clean
+	$(MAKE) -C .. pion_test_clean
 check:
-	$(MAKE) -C .. dash_test_check
+	$(MAKE) -C .. pion_test_check

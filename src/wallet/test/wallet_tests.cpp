@@ -10,7 +10,7 @@
 #include <vector>
 
 #include "rpc/server.h"
-#include "test/test_dash.h"
+#include "test/test_pion.h"
 #include "validation.h"
 #include "wallet/test/wallet_test_fixture.h"
 
@@ -378,7 +378,7 @@ BOOST_FIXTURE_TEST_CASE(rescan, TestChain100Setup)
         LOCK(wallet.cs_wallet);
         wallet.AddKeyPubKey(coinbaseKey, coinbaseKey.GetPubKey());
         BOOST_CHECK_EQUAL(oldTip, wallet.ScanForWalletTransactions(oldTip));
-        BOOST_CHECK_EQUAL(wallet.GetImmatureBalance(), 1000 * COIN);
+        BOOST_CHECK_EQUAL(wallet.GetImmatureBalance(), 40 * COIN);
     }
 
     // Prune the older block file.
@@ -392,7 +392,7 @@ BOOST_FIXTURE_TEST_CASE(rescan, TestChain100Setup)
         LOCK(wallet.cs_wallet);
         wallet.AddKeyPubKey(coinbaseKey, coinbaseKey.GetPubKey());
         BOOST_CHECK_EQUAL(newTip, wallet.ScanForWalletTransactions(oldTip));
-        BOOST_CHECK_EQUAL(wallet.GetImmatureBalance(), 500 * COIN);
+        BOOST_CHECK_EQUAL(wallet.GetImmatureBalance(), 20 * COIN);
     }
 
     // Verify importmulti RPC returns failure for a key whose creation time is

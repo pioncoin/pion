@@ -1,5 +1,5 @@
-Building Dash
+Building Pion
 =============
 
 See doc/build-*.md for instructions on building the various
-elements of the Dash Core reference implementation of Dash.
+elements of the Pion Core reference implementation of Pion.

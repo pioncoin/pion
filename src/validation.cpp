@@ -1,6 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2018 The Pion Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -54,7 +55,7 @@
 #include <boost/thread.hpp>
 
 #if defined(NDEBUG)
-# error "Dash Core cannot be compiled without assertions."
+# error "Pion Core cannot be compiled without assertions."
 #endif
 
 /**
@@ -1287,67 +1288,51 @@ NOTE:   unlike bitcoin we are using PREVIOUS block height here,
 */
 CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params& consensusParams, bool fSuperblockPartOnly)
 {
-    double dDiff;
     CAmount nSubsidyBase;
+    double reductionFactor = 0.84096;
 
-    if (nPrevHeight <= 4500 && Params().NetworkIDString() == CBaseChainParams::MAIN) {
-        /* a bug which caused diff to not be correctly calculated */
-        dDiff = (double)0x0000ffff / (double)(nPrevBits & 0x00ffffff);
-    } else {
-        dDiff = ConvertBitsToDouble(nPrevBits);
+    if (nPrevHeight == 0) { 
+        nSubsidyBase = 1000000; // Dev
+    } 
+    else if (nPrevHeight == 1) { 
+        nSubsidyBase =  250000; // Marketing
+    }
+    else {
+        nSubsidyBase = 20;
     }
 
-    if (nPrevHeight < 5465) {
-        // Early ages...
-        // 1111/((x+1)^2)
-        nSubsidyBase = (1111.0 / (pow((dDiff+1.0),2.0)));
-        if(nSubsidyBase > 500) nSubsidyBase = 500;
-        else if(nSubsidyBase < 1) nSubsidyBase = 1;
-    } else if (nPrevHeight < 17000 || (dDiff <= 75 && nPrevHeight < 24000)) {
-        // CPU mining era
-        // 11111/(((x+51)/6)^2)
-        nSubsidyBase = (11111.0 / (pow((dDiff+51.0)/6.0,2.0)));
-        if(nSubsidyBase > 500) nSubsidyBase = 500;
-        else if(nSubsidyBase < 25) nSubsidyBase = 25;
-    } else {
-        // GPU/ASIC mining era
-        // 2222222/(((x+2600)/9)^2)
-        nSubsidyBase = (2222222.0 / (pow((dDiff+2600.0)/9.0,2.0)));
-        if(nSubsidyBase > 25) nSubsidyBase = 25;
-        else if(nSubsidyBase < 5) nSubsidyBase = 5;
-    }
-
-    // LogPrintf("height %u diff %4.2f reward %d\n", nPrevHeight, dDiff, nSubsidyBase);
     CAmount nSubsidy = nSubsidyBase * COIN;
-
-    // yearly decline of production by ~7.1% per year, projected ~18M coins max by year 2050+.
+    // yearly decline of production by ~15.9% per year, projected ~34M coins by year 2050+.
     for (int i = consensusParams.nSubsidyHalvingInterval; i <= nPrevHeight; i += consensusParams.nSubsidyHalvingInterval) {
-        nSubsidy -= nSubsidy/14;
+        nSubsidy = nSubsidy * reductionFactor;
     }
 
-    // Hard fork to reduce the block reward by 10 extra percent (allowing budget/superblocks)
-    CAmount nSuperblockPart = (nPrevHeight > consensusParams.nBudgetPaymentsStartBlock) ? nSubsidy/10 : 0;
+    // 100 Bonus Coin every 2190 blocks for the first 5 years 
+    if (nPrevHeight < 1314000) { // 5 years
+        if ((nPrevHeight + 1) % 2190 == 0) {
+            nSubsidy = nSubsidy + (100 * COIN); // 100 PION every 2190 blocks
+        }
+    }
 
-    return fSuperblockPartOnly ? nSuperblockPart : nSubsidy - nSuperblockPart;
+    return nSubsidy;
 }
 
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
 {
-    CAmount ret = blockValue/5; // start at 20%
+    CAmount ret = blockValue * 3 / 10; // start at 30%
 
     int nMNPIBlock = Params().GetConsensus().nMasternodePaymentsIncreaseBlock;
     int nMNPIPeriod = Params().GetConsensus().nMasternodePaymentsIncreasePeriod;
 
                                                                       // mainnet:
-    if(nHeight > nMNPIBlock)                  ret += blockValue / 20; // 158000 - 25.0% - 2014-10-24
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 1)) ret += blockValue / 20; // 175280 - 30.0% - 2014-11-25
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 2)) ret += blockValue / 20; // 192560 - 35.0% - 2014-12-26
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 3)) ret += blockValue / 40; // 209840 - 37.5% - 2015-01-26
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 4)) ret += blockValue / 40; // 227120 - 40.0% - 2015-02-27
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 5)) ret += blockValue / 40; // 244400 - 42.5% - 2015-03-30
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 6)) ret += blockValue / 40; // 261680 - 45.0% - 2015-05-01
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 7)) ret += blockValue / 40; // 278960 - 47.5% - 2015-06-01
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 9)) ret += blockValue / 40; // 313520 - 50.0% - 2015-08-03
+    if(nHeight > nMNPIBlock)                  ret += blockValue / 40; // 65700 - 32.5% 
+    if(nHeight > nMNPIBlock + (nMNPIPeriod * 1)) ret += blockValue / 40; // 87600 - 35.0% 
+    if(nHeight > nMNPIBlock + (nMNPIPeriod * 2)) ret += blockValue / 40; // 109500 - 37.5% 
+    if(nHeight > nMNPIBlock + (nMNPIPeriod * 3)) ret += blockValue / 40; // 131400 - 40.0% 
+    if(nHeight > nMNPIBlock + (nMNPIPeriod * 4)) ret += blockValue / 40; // 153300 - 42.5% 
+    if(nHeight > nMNPIBlock + (nMNPIPeriod * 5)) ret += blockValue / 40; // 175200 - 45.0% 
+    if(nHeight > nMNPIBlock + (nMNPIPeriod * 6)) ret += blockValue / 40; // 197100 - 47.5% 
+    if(nHeight > nMNPIBlock + (nMNPIPeriod * 7)) ret += blockValue / 40; // 219000 - 50.0% 
 
     return ret;
 }
@@ -1931,7 +1916,7 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck() {
-    RenameThread("dash-scriptch");
+    RenameThread("pion-scriptch");
     scriptcheckqueue.Thread();
 }
 
@@ -2108,7 +2093,7 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
         }
     }
 
-    /// DASH: Check superblock start
+    /// PION: Check superblock start
 
     // make sure old budget is the real one
     if (pindex->nHeight == chainparams.GetConsensus().nSuperblockStartBlock &&
@@ -2117,7 +2102,7 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
             return state.DoS(100, error("ConnectBlock(): invalid superblock start"),
                              REJECT_INVALID, "bad-sb-start");
 
-    /// END DASH
+    /// END PION
 
     // BIP16 didn't become active until Apr 1 2012
     int64_t nBIP16SwitchTime = 1333238400;
@@ -2303,7 +2288,7 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
     int64_t nTime3 = GetTimeMicros(); nTimeConnect += nTime3 - nTime2;
     LogPrint("bench", "      - Connect %u transactions: %.2fms (%.3fms/tx, %.3fms/txin) [%.2fs]\n", (unsigned)block.vtx.size(), 0.001 * (nTime3 - nTime2), 0.001 * (nTime3 - nTime2) / block.vtx.size(), nInputs <= 1 ? 0 : 0.001 * (nTime3 - nTime2) / (nInputs-1), nTimeConnect * 0.000001);
 
-    // DASH : MODIFIED TO CHECK MASTERNODE PAYMENTS AND SUPERBLOCKS
+    // PION : MODIFIED TO CHECK MASTERNODE PAYMENTS AND SUPERBLOCKS
 
     // It's possible that we simply don't have enough data and this could fail
     // (i.e. block itself could be a correct one and we need to store it),
@@ -2314,15 +2299,15 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
     CAmount blockReward = nFees + GetBlockSubsidy(pindex->pprev->nBits, pindex->pprev->nHeight, chainparams.GetConsensus());
     std::string strError = "";
     if (!IsBlockValueValid(block, pindex->nHeight, blockReward, strError)) {
-        return state.DoS(0, error("ConnectBlock(DASH): %s", strError), REJECT_INVALID, "bad-cb-amount");
+        return state.DoS(0, error("ConnectBlock(PION): %s", strError), REJECT_INVALID, "bad-cb-amount");
     }
 
     if (!IsBlockPayeeValid(*block.vtx[0], pindex->nHeight, blockReward)) {
         mapRejectedBlocks.insert(std::make_pair(block.GetHash(), GetTime()));
-        return state.DoS(0, error("ConnectBlock(DASH): couldn't find masternode or superblock payments"),
+        return state.DoS(0, error("ConnectBlock(PION): couldn't find masternode or superblock payments"),
                                 REJECT_INVALID, "bad-cb-payee");
     }
-    // END DASH
+    // END PION
 
     if (!control.Wait())
         return state.DoS(100, false);
@@ -3336,7 +3321,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, const Consensus::P
             return state.DoS(100, false, REJECT_INVALID, "bad-cb-multiple", false, "more than one coinbase");
 
 
-    // DASH : CHECK TRANSACTIONS FOR INSTANTSEND
+    // PION : CHECK TRANSACTIONS FOR INSTANTSEND
 
     if(sporkManager.IsSporkActive(SPORK_3_INSTANTSEND_BLOCK_FILTERING)) {
         // We should never accept block which conflicts with completed transaction lock,
@@ -3359,10 +3344,10 @@ bool CheckBlock(const CBlock& block, CValidationState& state, const Consensus::P
             }
         }
     } else {
-        LogPrintf("CheckBlock(DASH): spork is off, skipping transaction locking checks\n");
+        LogPrintf("CheckBlock(PION): spork is off, skipping transaction locking checks\n");
     }
 
-    // END DASH
+    // END PION
 
     // Check transactions
     for (const auto& tx : block.vtx)
@@ -3402,19 +3387,10 @@ static bool CheckIndexAgainstCheckpoint(const CBlockIndex* pindexPrev, CValidati
 bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& state, const Consensus::Params& consensusParams, const CBlockIndex* pindexPrev, int64_t nAdjustedTime)
 {
     const int nHeight = pindexPrev == NULL ? 0 : pindexPrev->nHeight + 1;
-    // Check proof of work
-    if(Params().NetworkIDString() == CBaseChainParams::MAIN && nHeight <= 68589){
-        // architecture issues with DGW v1 and v2)
-        unsigned int nBitsNext = GetNextWorkRequired(pindexPrev, &block, consensusParams);
-        double n1 = ConvertBitsToDouble(block.nBits);
-        double n2 = ConvertBitsToDouble(nBitsNext);
-
-        if (abs(n1-n2) > n1*0.5)
-            return state.DoS(100, error("%s : incorrect proof of work (DGW pre-fork) - %f %f %f at %d", __func__, abs(n1-n2), n1, n2, nHeight),
-                            REJECT_INVALID, "bad-diffbits");
-    } else {
-        if (block.nBits != GetNextWorkRequired(pindexPrev, &block, consensusParams))
-            return state.DoS(100, false, REJECT_INVALID, "bad-diffbits", false, strprintf("incorrect proof of work at %d", nHeight));
+    // Check proof of work. We are using DGWv2 from the start
+    if (block.nBits != GetNextWorkRequired(pindexPrev, &block, consensusParams))
+    {
+        return state.DoS(100, false, REJECT_INVALID, "bad-diffbits", false, strprintf("incorrect proof of work at %d", nHeight));
     }
 
     // Check timestamp against prev

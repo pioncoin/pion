@@ -14,7 +14,7 @@
 #include "uint256.h"
 #include "util.h"
 #include "utilstrencodings.h"
-#include "test/test_dash.h"
+#include "test/test_pion.h"
 
 #include <vector>
 
@@ -84,7 +84,7 @@ BOOST_AUTO_TEST_CASE(bloom_create_insert_serialize_with_tweak)
 
 BOOST_AUTO_TEST_CASE(bloom_create_insert_key)
 {
-    std::string strSecret = std::string("7sQb6QHALg4XyHsJHsSNXnEHGhZfzTTUPJXJqaqK7CavQkiL9Ms");
+    std::string strSecret = std::string("9E8seta8Nj5TYaoP6q5rguLKhG6Cij8dKHrYo7LDoBdNMonMTXt");
     CBitcoinSecret vchSecret;
     BOOST_CHECK(vchSecret.SetString(strSecret));
 
@@ -100,7 +100,7 @@ BOOST_AUTO_TEST_CASE(bloom_create_insert_key)
     CDataStream stream(SER_NETWORK, PROTOCOL_VERSION);
     stream << filter;
 
-    std::vector<unsigned char> vch = ParseHex("038fc16b080000000000000001");
+    std::vector<unsigned char> vch = ParseHex("030cc17f080000000000000001");
     std::vector<char> expected(vch.size());
 
     for (unsigned int i = 0; i < vch.size(); i++)
@@ -493,7 +493,7 @@ BOOST_AUTO_TEST_CASE(rolling_bloom)
         if (rb1.contains(RandomData()))
             ++nHits;
     }
-    // Run test_dash with --log_level=message to see BOOST_TEST_MESSAGEs:
+    // Run test_pion with --log_level=message to see BOOST_TEST_MESSAGEs:
     BOOST_TEST_MESSAGE("RollingBloomFilter got " << nHits << " false positives (~100 expected)");
 
     // Insanely unlikely to get a fp count outside this range:

@@ -1,36 +1,27 @@
-Dash Core staging tree 0.12.3
+Pion Core staging tree 0.12.3
 ===============================
 
-`master:` [![Build Status](https://travis-ci.org/dashpay/dash.svg?branch=master)](https://travis-ci.org/dashpay/dash) `develop:` [![Build Status](https://travis-ci.org/dashpay/dash.svg?branch=develop)](https://travis-ci.org/dashpay/dash/branches)
-
-https://www.dash.org
+https://www.pioncoin.org
 
 
-What is Dash?
+What is Pion?
 ----------------
 
-Dash is an experimental digital currency that enables anonymous, instant
-payments to anyone, anywhere in the world. Dash uses peer-to-peer technology
-to operate with no central authority: managing transactions and issuing money
-are carried out collectively by the network. Dash Core is the name of the open
-source software which enables the use of this currency.
-
-For more information, as well as an immediately useable, binary version of
-the Dash Core software, see https://www.dash.org/get-dash/.
+Pion is a new decentralized Peer to Peer cryptocurrency that is simple, fast, and secure. The system uses Proof of Work (Mining) utilizing X16R algorithm and Masternodes for a fair and efficient allotment/distribution of Pion coins. To keep the coin decentralized the mining will be limited to GPU’s only and will be ASIC resistant. Pion wants to remove barriers to entry by making it simple for people to acquire and transact coins on the Pion network. Pion makes it effortless for people from all walks of life to mine, earn, own, trade and transact using the Pion coin.
 
 
 License
 -------
 
-Dash Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
+Pion Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see https://opensource.org/licenses/MIT.
 
 Development Process
 -------------------
 
 The `master` branch is meant to be stable. Development is normally done in separate branches.
-[Tags](https://github.com/dashpay/dash/tags) are created to indicate new official,
-stable release versions of Dash Core.
+[Tags](https://github.com/pioncoin/pion/tags) are created to indicate new official,
+stable release versions of Pion Core.
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
 
@@ -66,7 +57,7 @@ Translations
 ------------
 
 Changes to translations as well as new translations can be submitted to
-[Dash Core's Transifex page](https://www.transifex.com/projects/p/dash/).
+[Pion Core's Transifex page](https://www.transifex.com/projects/p/pion/).
 
 Translations are periodically pulled from Transifex and merged into the git repository. See the
 [translation process](doc/translation_process.md) for details on how this works.
@@ -74,4 +65,4 @@ Translations are periodically pulled from Transifex and merged into the git repo
 **Important**: We do not accept translation changes as GitHub pull requests because the next
 pull from Transifex would automatically overwrite them again.
 
-Translators should also follow the [forum](https://www.dash.org/forum/topic/dash-worldwide-collaboration.88/).
+Translators should also follow the [forum](https://www.pioncoin.org/forum/topic/pion-worldwide-collaboration.88/).

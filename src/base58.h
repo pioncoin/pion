@@ -95,10 +95,10 @@ public:
     bool operator> (const CBase58Data& b58) const { return CompareTo(b58) >  0; }
 };
 
-/** base58-encoded Dash addresses.
- * Public-key-hash-addresses have version 76 (or 140 testnet).
+/** base58-encoded Pion addresses.
+ * Public-key-hash-addresses have version 55 (or 118 testnet).
  * The data vector contains RIPEMD160(SHA256(pubkey)), where pubkey is the serialized public key.
- * Script-hash-addresses have version 16 (or 19 testnet).
+ * Script-hash-addresses have version 48 (or 125 testnet).
  * The data vector contains RIPEMD160(SHA256(cscript)), where cscript is the serialized redemption script.
  */
 class CBitcoinAddress : public CBase58Data {

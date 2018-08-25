@@ -7,7 +7,7 @@
 #include "pow.h"
 #include "random.h"
 #include "util.h"
-#include "test/test_dash.h"
+#include "test/test_pion.h"
 
 #include <boost/test/unit_test.hpp>
 
@@ -119,7 +119,7 @@ BOOST_AUTO_TEST_CASE(get_next_work)
 
     CBlockHeader blockHeader;
     blockHeader.nTime = 1408732505; // Block #123457
-    BOOST_CHECK_EQUAL(GetNextWorkRequired(&blockIndexLast, &blockHeader, params), 0x1b1441de); // Block #123457 has 0x1b1441de
+    BOOST_CHECK_EQUAL(GetNextWorkRequired(&blockIndexLast, &blockHeader, params), 0x1b195256); // Block #123457 has 0x1b195256
 }
 
 /* Test the constraint on the upper bound for next work */

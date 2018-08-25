@@ -1,7 +1,7 @@
 Protocol Documentation - 0.12.1
 =====================================
 
-This document describes the protocol extensions for all additional functionality build into the Dash protocol. This doesn't include any of the Bitcoin protocol, which has been left intact in the Dash project. For more information about the core protocol, please see https://en.bitcoin.it/w/index.php?title#Protocol_documentation&action#edit
+This document describes the protocol extensions for all additional functionality build into the Pion protocol. This doesn't include any of the Bitcoin protocol, which has been left intact in the Pion project. For more information about the core protocol, please see https://en.bitcoin.it/w/index.php?title#Protocol_documentation&action#edit
 
 ## Common Structures
 
@@ -77,9 +77,9 @@ Whenever a masternode comes online or a client is syncing, they will send this m
 
 | Field Size | Field Name | Data type | Description |
 | ---------- | ----------- | --------- | ---------- |
-| 36 | outpoint | [COutPoint](#coutpoint) | The unspent output which is holding 1000 DASH
+| 36 | outpoint | [COutPoint](#coutpoint) | The unspent output which is holding 1000 PION
 | # | addr | [CService](#cservice) | IPv4 address of the masternode
-| 33-65 | pubKeyCollateralAddress | [CPubKey](#cpubkey) | CPubKey of the main 1000 DASH unspent output
+| 33-65 | pubKeyCollateralAddress | [CPubKey](#cpubkey) | CPubKey of the main 1000 PION unspent output
 | 33-65 | pubKeyMasternode | [CPubKey](#cpubkey) | CPubKey of the secondary signing key (For all other messaging other than announce message)
 | 71-73 | sig | char[] | Signature of this message (verifiable via pubKeyCollateralAddress)
 | 8 | sigTime | int64_t | Time which the signature was created
@@ -100,7 +100,7 @@ Every few minutes, masternodes ping the network with a message that propagates t
 | 71-73 | vchSig | char[] | Signature of this message by masternode (verifiable via pubKeyMasternode)
 | 1 | fSentinelIsCurrent | bool | true if last sentinel ping was current
 | 4 | nSentinelVersion | uint32_t | The version of Sentinel running on the masternode which is signing the message
-| 4 | nDaemonVersion | uint32_t | The version of dashd of the masternode which is signing the message (i.e. CLIENT_VERSION)
+| 4 | nDaemonVersion | uint32_t | The version of piond of the masternode which is signing the message (i.e. CLIENT_VERSION)
 
 ### MASTERNODEPAYMENTVOTE - "mnw"
 
@@ -254,10 +254,10 @@ Spork
 | ---------- | ---------- | ----------- | ----------- |
 | 10001 | 2 | INSTANTSEND_ENABLED | Turns on and off InstantSend network wide
 | 10002 | 3 | INSTANTSEND_BLOCK_FILTERING | Turns on and off InstantSend block filtering
-| 10004 | 5 | INSTANTSEND_MAX_VALUE | Controls the max value for an InstantSend transaction (currently 2000 dash)
-| 10005 | 6 | NEW_SIGS | Turns on and off new signature format for Dash-specific messages
+| 10004 | 5 | INSTANTSEND_MAX_VALUE | Controls the max value for an InstantSend transaction (currently 2000 pion)
+| 10005 | 6 | NEW_SIGS | Turns on and off new signature format for Pion-specific messages
 | 10007 | 8 | MASTERNODE_PAYMENT_ENFORCEMENT | Requires masternodes to be paid by miners when blocks are processed
-| 10008 | 9 | SUPERBLOCKS_ENABLED | Superblocks are enabled (the 10% comes to fund the dash treasury)
+| 10008 | 9 | SUPERBLOCKS_ENABLED | Superblocks are enabled (the 10% comes to fund the pion treasury)
 | 10009 | 10 | MASTERNODE_PAY_UPDATED_NODES | Only current protocol version masternode's will be paid (not older nodes)
 | 10011 | 12 | RECONSIDER_BLOCKS | |
 | 10012 | 13 | OLD_SUPERBLOCK_FLAG | |
@@ -277,8 +277,8 @@ Masternode Verify
 
 | Field Size | Field Name | Data type | Description |
 | ---------- | ----------- | --------- | ---------- |
-| 36 | masternodeOutpoint1 | [COutPoint](#coutpoint) | The unspent output which is holding 1000 DASH for masternode 1
-| 36 | masternodeOutpoint2 | [COutPoint](#coutpoint) | The unspent output which is holding 1000 DASH for masternode 2
+| 36 | masternodeOutpoint1 | [COutPoint](#coutpoint) | The unspent output which is holding 1000 PION for masternode 1
+| 36 | masternodeOutpoint2 | [COutPoint](#coutpoint) | The unspent output which is holding 1000 PION for masternode 2
 | # | addr | [CService](#cservice) | IPv4 address / port of the masternode
 | 4 | nonce | int | Nonce
 | 4 | nBlockHeight | int | The blockheight
@@ -320,7 +320,7 @@ Get Masternode list or specific entry
 
 | Field Size | Field Name | Data type | Description |
 | ---------- | ----------- | --------- | ---------- |
-| 36 | masternodeOutpoint | [COutPoint](#coutpoint) | The unspent output which is holding 1000 DASH
+| 36 | masternodeOutpoint | [COutPoint](#coutpoint) | The unspent output which is holding 1000 PION
 
 ### SYNCSTATUSCOUNT - "ssc"
 

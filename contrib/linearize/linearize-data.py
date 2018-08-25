@@ -14,7 +14,7 @@ import os
 import os.path
 import sys
 import hashlib
-import dash_hash
+import pion_hash
 import datetime
 import time
 from collections import namedtuple
@@ -59,7 +59,7 @@ def calc_hdr_hash(blk_hdr):
 	#hash2_o = hash2.digest()
 
 	#return hash2_o
-        pow_hash = dash_hash.getPoWHash(blk_hdr)
+        pow_hash = pion_hash.getPoWHash(blk_hdr)
         return pow_hash
 
 def calc_hash_str(blk_hdr):
@@ -288,7 +288,7 @@ if __name__ == '__main__':
 	if 'netmagic' not in settings:
 		settings['netmagic'] = 'bf0c6bbd'
 	if 'genesis' not in settings:
-		settings['genesis'] = '00000ffd590b1485b3caadc19b22e6379c733355108f107a430458cdf3407ab6'
+		settings['genesis'] = '000009c77e1208a736b8289762416db2472b644e35fe8341104e1de218673a0d'
 	if 'input' not in settings:
 		settings['input'] = 'input'
 	if 'hashlist' not in settings:

@@ -1,7 +1,8 @@
 // Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2018 The Pion Core Developers
 // Distributed under the MIT software license, see the accompanying
-#ifndef DASH_HDCHAIN_H
-#define DASH_HDCHAIN_H
+#ifndef PION_HDCHAIN_H
+#define PION_HDCHAIN_H
 
 #include "key.h"
 #include "sync.h"
@@ -147,4 +148,4 @@ public:
     std::string GetKeyPath() const;
 };
 
-#endif // DASH_HDCHAIN_H
+#endif // PION_HDCHAIN_H

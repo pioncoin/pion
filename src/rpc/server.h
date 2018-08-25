@@ -143,7 +143,7 @@ public:
 };
 
 /**
- * Dash RPC command dispatcher.
+ * Pion RPC command dispatcher.
  */
 class CRPCTable
 {

@@ -1,2 +1,2 @@
-contrib/dashd.bash-completion	dashd
-contrib/dash-cli.bash-completion    dash-cli
+contrib/piond.bash-completion	piond
+contrib/pion-cli.bash-completion    pion-cli
