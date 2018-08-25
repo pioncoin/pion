@@ -33,36 +33,37 @@ struct {
     unsigned char extranonce;
     unsigned int nonce;
 } blockinfo[] = {
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000}, {0, 0x00000000},
-    {0, 0x00000000}, {0, 0x00000000}
+    {0, 2959073}, {0, 956495}, {0, 881601}, {0, 749743}, 
+    {0, 434966}, {0, 123387}, {0, 1719514}, {0, 176917}, 
+    {0, 1337290}, {0, 4268935}, {0, 414167}, {0, 137736}, 
+    {0, 1682611}, {0, 1573378}, {0, 603679}, {0, 19402}, 
+    {0, 423851}, {0, 611311}, {0, 154892}, {0, 427999}, 
+    {0, 674963}, {0, 2558194}, {0, 786305}, {0, 640985}, 
+    {0, 501603}, {0, 487148}, {0, 570020}, {0, 1826446}, 
+    {0, 3332779}, {0, 1141383}, {0, 294198}, {0, 1127006}, 
+    {0, 844851}, {0, 627297}, {0, 369877}, {0, 405205}, 
+    {0, 262570}, {0, 743608}, {0, 1267424}, {0, 72973}, 
+    {0, 601099}, {0, 3439799}, {0, 47089}, {0, 52575}, 
+    {0, 26314}, {0, 1848029}, {0, 315250}, {0, 576018}, 
+    {0, 636470}, {0, 667387}, {0, 173788}, {0, 1236113}, 
+    {0, 1145997}, {0, 2963002}, {0, 2523731}, {0, 951560}, 
+    {0, 957915}, {0, 1117815}, {0, 526904}, {0, 532133}, 
+    {0, 354215}, {0, 552874}, {0, 202652}, {0, 1444200}, 
+    {0, 14297}, {0, 2838590}, {0, 3518200}, {0, 358412}, 
+    {0, 333140}, {0, 664618}, {0, 67170}, {0, 862611}, 
+    {0, 1253743}, {0, 334405}, {0, 504354}, {0, 1869304}, 
+    {0, 2668102}, {0, 550216}, {0, 90632}, {0, 2704350}, 
+    {0, 1904530}, {0, 717848}, {0, 174666}, {0, 513613}, 
+    {0, 276498}, {0, 1050678}, {0, 113287}, {0, 2139052}, 
+    {0, 568807}, {0, 689480}, {0, 1300145}, {0, 511044}, 
+    {0, 26205}, {0, 188225}, {0, 519179}, {0, 418379}, 
+    {0, 350317}, {0, 963051}, {0, 1977936}, {0, 109518}, 
+    {0, 52178}, {0, 61646}, {0, 1350968}, {0, 2430244}, 
+    {0, 93785}, {0, 918801}, {0, 988006}, {0, 171770}, 
+    {0, 885603}, {0, 152262}, {0, 431468}, {0, 1252370}, 
+    {0, 1011431}, {0, 119069}, {0, 1138506}, {0, 491772}, 
+    {0, 639573},{0, 168940}
+
 };
 
 CBlockIndex CreateBlockIndex(int nHeight)
@@ -99,22 +100,22 @@ void TestPackageSelection(const CChainParams& chainparams, CScript scriptPubKey,
     tx.vin[0].prevout.hash = txFirst[0]->GetHash();
     tx.vin[0].prevout.n = 0;
     tx.vout.resize(1);
-    tx.vout[0].nValue = 5000000000LL - 1000;
-    // This tx has a low fee: 1000 satoshis
+    tx.vout[0].nValue = 200000000LL - 40;
+    // This tx has a low fee: 40 satoshis
     uint256 hashParentTx = tx.GetHash(); // save this txid for later use
-    mempool.addUnchecked(hashParentTx, entry.Fee(1000).Time(GetTime()).SpendsCoinbase(true).FromTx(tx));
+    mempool.addUnchecked(hashParentTx, entry.Fee(40).Time(GetTime()).SpendsCoinbase(true).FromTx(tx));
 
-    // This tx has a medium fee: 10000 satoshis
+    // This tx has a medium fee: 400 satoshis
     tx.vin[0].prevout.hash = txFirst[1]->GetHash();
-    tx.vout[0].nValue = 5000000000LL - 10000;
+    tx.vout[0].nValue = 200000000LL - 400;
     uint256 hashMediumFeeTx = tx.GetHash();
-    mempool.addUnchecked(hashMediumFeeTx, entry.Fee(10000).Time(GetTime()).SpendsCoinbase(true).FromTx(tx));
+    mempool.addUnchecked(hashMediumFeeTx, entry.Fee(400).Time(GetTime()).SpendsCoinbase(true).FromTx(tx));
 
     // This tx has a high fee, but depends on the first transaction
     tx.vin[0].prevout.hash = hashParentTx;
-    tx.vout[0].nValue = 5000000000LL - 1000 - 50000; // 50k satoshi fee
+    tx.vout[0].nValue = 200000000LL - 40 - 2000; // 50k satoshi fee
     uint256 hashHighFeeTx = tx.GetHash();
-    mempool.addUnchecked(hashHighFeeTx, entry.Fee(50000).Time(GetTime()).SpendsCoinbase(false).FromTx(tx));
+    mempool.addUnchecked(hashHighFeeTx, entry.Fee(2000).Time(GetTime()).SpendsCoinbase(false).FromTx(tx));
 
     std::unique_ptr<CBlockTemplate> pblocktemplate = BlockAssembler(chainparams).CreateNewBlock(scriptPubKey);
     BOOST_CHECK(pblocktemplate->block.vtx[1]->GetHash() == hashParentTx);
@@ -123,7 +124,7 @@ void TestPackageSelection(const CChainParams& chainparams, CScript scriptPubKey,
 
     // Test that a package below the block min tx fee doesn't get included
     tx.vin[0].prevout.hash = hashHighFeeTx;
-    tx.vout[0].nValue = 5000000000LL - 1000 - 50000; // 0 fee
+    tx.vout[0].nValue = 200000000LL - 40 - 2000; // 0 fee
     uint256 hashFreeTx = tx.GetHash();
     mempool.addUnchecked(hashFreeTx, entry.Fee(0).FromTx(tx));
     size_t freeTxSize = ::GetSerializeSize(tx, SER_NETWORK, PROTOCOL_VERSION);
@@ -133,7 +134,7 @@ void TestPackageSelection(const CChainParams& chainparams, CScript scriptPubKey,
     CAmount feeToUse = blockMinFeeRate.GetFee(2*freeTxSize) - 1;
 
     tx.vin[0].prevout.hash = hashFreeTx;
-    tx.vout[0].nValue = 5000000000LL - 1000 - 50000 - feeToUse;
+    tx.vout[0].nValue = 200000000LL - 40 - 2000 - feeToUse;
     uint256 hashLowFeeTx = tx.GetHash();
     mempool.addUnchecked(hashLowFeeTx, entry.Fee(feeToUse).FromTx(tx));
     pblocktemplate = BlockAssembler(chainparams).CreateNewBlock(scriptPubKey);
@@ -159,8 +160,8 @@ void TestPackageSelection(const CChainParams& chainparams, CScript scriptPubKey,
     // Add a 0-fee transaction that has 2 outputs.
     tx.vin[0].prevout.hash = txFirst[2]->GetHash();
     tx.vout.resize(2);
-    tx.vout[0].nValue = 5000000000LL - 100000000;
-    tx.vout[1].nValue = 100000000; // 1BTC output
+    tx.vout[0].nValue = 200000000LL - 4000000;
+    tx.vout[1].nValue = 4000000; // 1BTC output
     uint256 hashFreeTx2 = tx.GetHash();
     mempool.addUnchecked(hashFreeTx2, entry.Fee(0).SpendsCoinbase(true).FromTx(tx));
 
@@ -168,7 +169,7 @@ void TestPackageSelection(const CChainParams& chainparams, CScript scriptPubKey,
     tx.vin[0].prevout.hash = hashFreeTx2;
     tx.vout.resize(1);
     feeToUse = blockMinFeeRate.GetFee(freeTxSize);
-    tx.vout[0].nValue = 5000000000LL - 100000000 - feeToUse;
+    tx.vout[0].nValue = 200000000LL - 4000000 - feeToUse;
     uint256 hashLowFeeTx2 = tx.GetHash();
     mempool.addUnchecked(hashLowFeeTx2, entry.Fee(feeToUse).SpendsCoinbase(false).FromTx(tx));
     pblocktemplate = BlockAssembler(chainparams).CreateNewBlock(scriptPubKey);
@@ -182,8 +183,8 @@ void TestPackageSelection(const CChainParams& chainparams, CScript scriptPubKey,
     // This tx will be mineable, and should cause hashLowFeeTx2 to be selected
     // as well.
     tx.vin[0].prevout.n = 1;
-    tx.vout[0].nValue = 100000000 - 10000; // 10k satoshi fee
-    mempool.addUnchecked(tx.GetHash(), entry.Fee(10000).FromTx(tx));
+    tx.vout[0].nValue = 4000000 - 400; // 10k satoshi fee
+    mempool.addUnchecked(tx.GetHash(), entry.Fee(400).FromTx(tx));
     pblocktemplate = BlockAssembler(chainparams).CreateNewBlock(scriptPubKey);
     BOOST_CHECK(pblocktemplate->block.vtx[8]->GetHash() == hashLowFeeTx2);
 }
@@ -250,10 +251,10 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
     // Just to make sure we can still make simple blocks
     BOOST_CHECK(pblocktemplate = BlockAssembler(chainparams).CreateNewBlock(scriptPubKey));
 
-    const CAmount BLOCKSUBSIDY = 500*COIN;
-    const CAmount LOWFEE = CENT;
-    const CAmount HIGHFEE = COIN;
-    const CAmount HIGHERFEE = 4*COIN;
+    const CAmount BLOCKSUBSIDY = 20*COIN;
+    const CAmount LOWFEE = CENT / 25;
+    const CAmount HIGHFEE = COIN / 25;
+    const CAmount HIGHERFEE = 4*COIN /25;
 
     // block sigops > limit: 1000 CHECKMULTISIG + 1
     tx.vin.resize(1);
@@ -263,7 +264,7 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
     tx.vin[0].prevout.n = 0;
     tx.vout.resize(1);
     tx.vout[0].nValue = BLOCKSUBSIDY;
-    for (unsigned int i = 0; i < 1001; ++i)
+    for (unsigned int i = 0; i < 2001; ++i)
     {
         tx.vout[0].nValue -= LOWFEE;
         hash = tx.GetHash();

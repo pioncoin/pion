@@ -70,20 +70,20 @@ connectivity on devnets which are using nodes with multiple different ports.
 See detailed [change log](https://github.com/pioncoin/pion/compare/v0.12.3.1...pioncoin:v0.12.3.2) below.
 
 ### Network:
-- [`2474d9cb8`](https://github.com/dashpay/dash/commit/2474d9cb8) Sync mn list and mnw list from 3 peers max (#2169)
-- [`2c303cdb1`](https://github.com/dashpay/dash/commit/2c303cdb1) A few devnet related fixes (#2168)
+- [`3abb3befb`](https://github.com/pioncoin/pion/commit/3abb3befb) Sync mn list and mnw list from 3 peers max (#2169)
+- [`3abb3befb`](https://github.com/pioncoin/pion/commit/3abb3befb) A few devnet related fixes (#2168)
 
 ### Mining:
-- [`2ba0c7760`](https://github.com/dashpay/dash/commit/2ba0c7760) Add tests for special rules for slow blocks on devnet/testnet (#2176)
-- [`b9a83d2ae`](https://github.com/dashpay/dash/commit/b9a83d2ae) Allow mining min diff for very slow (2h+) blocks (#2175)
-- [`050cabdf5`](https://github.com/dashpay/dash/commit/050cabdf5) Adjust diff for slow testnet/devnet blocks a bit smoother (#2161)
+- [`3abb3befb`](https://github.com/pioncoin/pion/commit/3abb3befb) Add tests for special rules for slow blocks on devnet/testnet (#2176)
+- [`3abb3befb`](https://github.com/pioncoin/pion/commit/3abb3befb) Allow mining min diff for very slow (2h+) blocks (#2175)
+- [`3abb3befb`](https://github.com/pioncoin/pion/commit/3abb3befb) Adjust diff for slow testnet/devnet blocks a bit smoother (#2161)
 
 ### GUI:
-- [`7b9919d18`](https://github.com/dashpay/dash/commit/7b9919d18) Fix issues with selections on Masternode tab (#2170)
-- [`c4698d5f3`](https://github.com/dashpay/dash/commit/c4698d5f3) Make PS Buttons not react to spacebar (#2154)
+- [`3abb3befb`](https://github.com/pioncoin/pion/commit/3abb3befb) Fix issues with selections on Masternode tab (#2170)
+- [`3abb3befb`](https://github.com/pioncoin/pion/commit/3abb3befb) Make PS Buttons not react to spacebar (#2154)
 
 ### Other:
-- [`f833e2ed6`](https://github.com/dashpay/dash/commit/f833e2ed6) Bump to 0.12.3.2 (#2173)
+- [``](https://github.com/pioncoin/pion/commit/) Bump to 0.12.3.3 
 
 
 Credits
