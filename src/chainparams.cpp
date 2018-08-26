@@ -175,10 +175,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nThreshold = 50; // 50% of 100. 
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000002ebc755d4150b"); // 1500
+        consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000000000d69507c62a4bc"); // 15020
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x0000000001fb85d15692ea9300249267549fb5102264c0469ac88a5af99d85fb"); // 1500
+        consensus.defaultAssumeValid = uint256S("0x00000000040f6bc33ad0028728b32538b717550272bec718903034fe0cbfa52a"); // 15020
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -230,12 +230,13 @@ public:
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (  2, uint256S("0x000002131139f1c39af6ce10f027e5c708e7f16f66415fb0725182a1b38965e6"))
+            (     2, uint256S("0x000002131139f1c39af6ce10f027e5c708e7f16f66415fb0725182a1b38965e6"))
             (  1500, uint256S("0x0000000001fb85d15692ea9300249267549fb5102264c0469ac88a5af99d85fb"))
+            ( 15020, uint256S("0x00000000040f6bc33ad0028728b32538b717550272bec718903034fe0cbfa52a"))
         };
 
         chainTxData = ChainTxData{
-            1533070107, // * UNIX timestamp of last known number of transactions
+            1534779922, // * UNIX timestamp of last known number of transactions
             0,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             0.01         // * estimated number of transactions per second after that timestamp
