@@ -1,11 +1,11 @@
-Pion Core version 0.12.3.3
+Pion Core version 0.12.3.2
 ==========================
 
 Release is now available from:
 
   <https://www.pioncoin.org/downloads/#wallets>
 
-This is a critical bugfix release, bringing various bugfixes and other
+This is a minor bugfix release, bringing various bugfixes and other
 improvements.
 
 Please report bugs using the issue tracker at github:
@@ -35,7 +35,7 @@ the database if you decide to use any pre-0.12.2.2 version.
 
 Wallet forward or backward compatibility was not affected.
 
-### Downgrade to 0.12.2.2/3, 0.12.3.1/2
+### Downgrade to 0.12.2.2/3, 0.12.3.1
 
 Downgrading to these versions does not require any additional actions, should be
 fully compatible.
@@ -44,52 +44,18 @@ fully compatible.
 Notable changes
 ===============
 
-Fix crash bug with duplicate inputs within a transaction
---------------------------------------------------------
-There was a critical bug discovered in Bitcoin Core's codebase recently which
-can cause node receiving a block to crash https://github.com/bitcoin/bitcoin/pull/14247
+Added tests
+-----------
+Added tests that were missing from the initial commit
 
-Improve initial sync
---------------------
+Patches for gitian
+------------------
+There were some patches missing from the initial commit that are required for gitian builds
 
-Some users had problems getting their nodes synced. The issue occured due to nodes trying to
-get additional data from each available peer but not being able to process this data fast enough.
-This was recognized as a stalled sync process and thus the process was reset. To address the issue
-we limited sync process to 3 peers max now and the issue should no longer appear as long as there
-are at least 4 connections.
-
-Testnet/Devnet fixes
---------------------
-
-Turned out that a low-diff rule for slow blocks backported from Bitcoin works a bit too aggressive for
-a blockchain which uses a dynamic per-block difficulty adjustment algorithm (DGW). While blocks are still
-produced at a more or less constant rate on average, the rate however is way too high.
-
-We also lifted multiple ports restriction on devnet and also incuded other fixes which should improve
-connectivity on devnets which are using nodes with multiple different ports.
-
-
-0.12.3.3 Change log
+0.12.3.2 Change log
 ===================
 
-See detailed [change log](https://github.com/pioncoin/pion/compare/v0.12.3.2...pioncoin:v0.12.3.3) below.
-
-### Network:
-- [`3abb3befb`](https://github.com/pioncoin/pion/commit/3abb3befb) Sync mn list and mnw list from 3 peers max (#2169)
-- [`3abb3befb`](https://github.com/pioncoin/pion/commit/3abb3befb) A few devnet related fixes (#2168)
-
-### Mining:
-- [`3abb3befb`](https://github.com/pioncoin/pion/commit/3abb3befb) Add tests for special rules for slow blocks on devnet/testnet (#2176)
-- [`3abb3befb`](https://github.com/pioncoin/pion/commit/3abb3befb) Allow mining min diff for very slow (2h+) blocks (#2175)
-- [`3abb3befb`](https://github.com/pioncoin/pion/commit/3abb3befb) Adjust diff for slow testnet/devnet blocks a bit smoother (#2161)
-
-### GUI:
-- [`3abb3befb`](https://github.com/pioncoin/pion/commit/3abb3befb) Fix issues with selections on Masternode tab (#2170)
-- [`3abb3befb`](https://github.com/pioncoin/pion/commit/3abb3befb) Make PS Buttons not react to spacebar (#2154)
-
-### Other:
-- [`5849b7c09`](https://github.com/pioncoin/pion/commit/5849b7c09) Fix miner tests for x16r. Update release notes 
-
+See detailed [change log](https://github.com/pioncoin/pion/compare/v0.12.3.1...pioncoin:v0.12.3.2).
 
 Credits
 =======
@@ -123,7 +89,6 @@ Pion Core tree 0.12.0.x was a fork of Bitcoin Core tree 0.10.
 Pion Core tree 0.12.1.x was a fork of Bitcoin Core tree 0.12.
 
 These release are considered obsolete. Old release notes can be found here:
-- [v0.12.3.2](https://github.com/pioncoin/pion/blob/master/doc/release-notes/pion/release-notes-0.12.3.2.md) released Aug/02/2018
 - [v0.12.3.1](https://github.com/pioncoin/pion/blob/master/doc/release-notes/pion/release-notes-0.12.3.1.md) released Jul/03/2018
 - [v0.12.2.3](https://github.com/pioncoin/pion/blob/master/doc/release-notes/pion/release-notes-0.12.2.3.md) released Jan/12/2018
 - [v0.12.2.2](https://github.com/pioncoin/pion/blob/master/doc/release-notes/pion/release-notes-0.12.2.2.md) released Dec/17/2017
